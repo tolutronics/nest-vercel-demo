@@ -298,4 +298,8 @@ export class AppService {
       throw new Error(error);
     }
   }
+
+  async listen(ev: any) {
+    console.log('paystack event here====>', ev);
+  }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, HttpCode, Param } from '@nestjs/common';
+import { Controller, Get, Post, HttpCode, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -20,5 +20,11 @@ export class AppController {
   @Get('/news/:source')
   getAllNewsBySource(@Param() param: any) {
     return this.appService.newsBySource(param.source);
+  }
+
+  @HttpCode(200)
+  @Post('/listen')
+  listen(@Param() body: any) {
+    return this.appService.listen(body);
   }
 }
